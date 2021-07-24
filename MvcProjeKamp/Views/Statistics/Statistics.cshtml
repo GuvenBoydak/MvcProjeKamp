@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Statistics";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<h1>İstatistik Tablosu</h1>
+<hr />
+<div class="card-deck">
+    <div class="card text-white bg-primary mr-3" >
+        <div class="card-header">Toplam Kategori Sayısı</div>
+        <div class="card-body">
+            <h3 class="text-center">@ViewBag.TotalCategory</h3>
+        </div>
+    </div>
+
+    <div class="card text-white bg-warning mr-3">
+        <div class="card-header"> <u><b>Yazılım</b></u>Kategorisine ait Başlıklar</div>
+        <div class="card-body">
+            <h3 class="text-center">@ViewBag.SoftwareCategory</h3>
+        </div>
+    </div>
+
+
+    <div class="card text-white bg-danger mr-3">
+        <div class="card-header">Adında "A" Geçen Yazar Sayısı</div>
+        <div class="card-body">
+            <h3 class="text-center">@ViewBag.WriterName</h3>
+        </div>
+    </div>
+
+
+    <div class="card text-white bg-success mr-3">
+        <div class="card-header">En Fazla Başlığa Sahip Kategori</div>
+        <div class="card-body">
+            <h3 class="text-center">@ViewBag.maximumtitle</h3>
+        </div>
+    </div>
+    <div class="card text-white bg-gradient-info mr-3">
+        <div class="card-header">Kategori tablosunda durumu true olan kategoriler ile false olan kategoriler arasındaki sayısal fark</div>
+        <div class="card-body">
+            <h3 class="text-center">@ViewBag.StatusDiffrerent</h3>
+        </div>
+    </div>
+</div>
+
+
+
