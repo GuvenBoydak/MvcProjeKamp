@@ -47,6 +47,13 @@ namespace MvcProjeKamp.Controllers
             var draftCount = mm.GetListSendbox().Count();
             ViewBag.draftCount = draftCount;
 
+            var readMessage = mm.GetAllRead().Where(x => x.IsRead == true).Count();
+            ViewBag.readMessage = readMessage;
+
+            var unReadMessage = mm.GetAllUnRead().Where(x=>x.IsRead==false).Count();
+            ViewBag.unReadMessage = unReadMessage;
+
+
 
 
             return PartialView();

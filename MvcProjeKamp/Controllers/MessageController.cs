@@ -18,6 +18,8 @@ namespace MvcProjeKamp.Controllers
         MessageValidator mv = new MessageValidator();
         Context c = new Context();
         // GET: Message
+
+        [Authorize]
         public ActionResult Inbox()
         {
             var messageList = mm.GetListInbox();
@@ -74,6 +76,34 @@ namespace MvcProjeKamp.Controllers
         {
             var messageDetail = mm.GetById(id);
             return View(messageDetail);
+        }
+
+        public ActionResult IsRead(int id)
+        {
+            var readMessage = mm.GetById(id);
+            if (readMessage.IsRead==false)
+            {
+                readMessage.IsRead = true;
+            }
+            else
+            {
+                readMessage.IsRead = false;
+            }
+
+            mm.UpdateMessage(readMessage);
+            return RedirectToAction("Inbox");
+        }
+
+        public  ActionResult MessageRead()
+        {
+            var readMessage = mm.GetAllRead().Where(x => x.IsRead == true).ToList();
+            return View(readMessage);
+        }
+
+        public ActionResult UnReadMessage()
+        {
+            var unReadMessage = mm.GetAllUnRead();
+            return View(unReadMessage);
         }
 
     }

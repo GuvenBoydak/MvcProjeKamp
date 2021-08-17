@@ -17,10 +17,22 @@
                     <span class="badge bg-info float-right">@ViewBag.contant</span>
                 </a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item has-treeview">
                 <a href="/Message/Inbox/" class="nav-link">
                     <i class="fas fa-inbox"></i> Gelen Mesajlar
-                    <span class="badge bg-red float-right">@ViewBag.ınboxMail</span>
+                    <span class="badge bg-gradient-info float-right">@ViewBag.ınboxMail</span>
+                </a>
+            </li>
+            <li class="nav-item has-treeview">
+                <a href="/Message/MessageRead/" class="nav-link">
+                    <i class="fas fa-envelope-open"></i> Okunmuş Mesajlar
+                    <span class="badge bg-orange float-right">@ViewBag.readMessage</span>
+                </a>
+            </li>
+            <li class="nav-item has-treeview">
+                <a href="/Message/UnReadMessage/" class="nav-link">
+                    <i class="fas fa-envelope"></i> Okunmamış Mesajlar
+                    <span class="badge bg-red float-right">@ViewBag.unReadMessage</span>
                 </a>
             </li>
             <li class="nav-item">

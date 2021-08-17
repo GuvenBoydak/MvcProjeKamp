@@ -23,6 +23,16 @@ namespace BusinessLayer.Concrete
             _messageDal.Delete(message);
         }
 
+        public List<Message> GetAllRead()
+        {
+            return _messageDal.List(x => x.ReceiverMail == "admin@gmail.com").ToList();
+        }
+
+        public List<Message> GetAllUnRead()
+        {
+            return _messageDal.List(x => x.ReceiverMail == "admin@gmail.com").Where(x => x.IsRead == false).ToList();
+        }
+
         public Message GetById(int id)
         {
             return _messageDal.Get(x => x.MessageId == id);
@@ -30,7 +40,7 @@ namespace BusinessLayer.Concrete
 
         public List<Message> GetListInbox()
         {
-            return _messageDal.List(x=>x.ReceiverMail=="admin@gmail.com");
+            return _messageDal.List(x => x.ReceiverMail == "admin@gmail.com");
         }
 
         public List<Message> GetListSendbox()

@@ -22,5 +22,9 @@ namespace BusinessLayer.Abstract
         Message GetById(int id);
 
         List<Message> IsDraft();
+
+        List<Message> GetAllRead();
+
+        List<Message> GetAllUnRead();
     }
 }
